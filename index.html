@@ -5,70 +5,60 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <!-- WhatsApp Preview -->
-  <meta property="og:title" content="😂😂😂" />
-  <meta property="og:description" content="Tap to open 😏" />
-  <meta property="og:image" content="https://YOUR_USERNAME.github.io/jaaelo/preview.jpg" />
+  <meta property="og:title" content="📄 Document" />
+  <meta property="og:description" content="Tap to view" />
+  <meta property="og:image" content="https://kamrankgn2.github.io/checkthis/preview.jpg" />
   <meta property="og:type" content="website" />
 
-  <title>😆</title>
+  <title>Document</title>
 
   <style>
     body {
       margin: 0;
       height: 100vh;
+      background: black;
+      color: white;
+      font-family: Arial, sans-serif;
       display: flex;
       align-items: center;
       justify-content: center;
-      background: black;
-      color: white;
-      font-size: 14vw;
-      font-family: Arial, sans-serif;
-      font-weight: bold;
       text-align: center;
-      transition: background 0.2s;
+      user-select: none;
     }
 
-    .small {
+    #screen {
       font-size: 6vw;
-      opacity: 0.8;
+      opacity: 0.85;
+    }
+
+    .big {
+      font-size: 14vw;
+      font-weight: bold;
+      opacity: 1;
     }
   </style>
 </head>
 
 <body>
-  <div id="screen" class="small">Loading… ⏳</div>
+  <div id="screen">Tap to view 📄</div>
 
   <script>
-    // Initial vibration
-    navigator.vibrate && navigator.vibrate(300);
+    let step = 0;
 
-    // Fake loading → prank
-    setTimeout(() => {
-      document.getElementById("screen").innerHTML = "Jaa e Lo 😆😆";
-      document.getElementById("screen").className = "";
-      navigator.vibrate && navigator.vibrate([200,100,200]);
-      flash();
-    }, 1800);
+    document.body.addEventListener("click", () => {
+      step++;
 
-    // Tap interaction
-    document.body.onclick = () => {
-      document.getElementById("screen").innerHTML = "😂😂😂 JAA E LOOO 😂😂😂";
-      navigator.vibrate && navigator.vibrate([300,100,300]);
-      flash();
-    };
+      if (step === 1) {
+        navigator.vibrate && navigator.vibrate(300);
+        document.getElementById("screen").innerHTML = "Jaa e Lo 😆😆";
+        document.getElementById("screen").className = "big";
+      }
 
-    // Flash effect
-    function flash() {
-      let i = 0;
-      let interval = setInterval(() => {
-        document.body.style.background = i % 2 ? "black" : "#222";
-        i++;
-        if (i > 6) {
-          clearInterval(interval);
-          document.body.style.background = "black";
-        }
-      }, 120);
-    }
+      if (step === 2) {
+        navigator.vibrate && navigator.vibrate([300,100,300]);
+        document.getElementById("screen").innerHTML = "😂😂😂 JAA E LOOO 😂😂😂";
+      }
+    });
   </script>
 </body>
 </html>
